@@ -10,6 +10,8 @@ pageEncoding="UTF-8"%>
 <div align="center">
 	<div>
 		<h1>자주하는 질문.</h1>
+		
+		<!-- 나중에 지우기. 아직은 그대로 두기. -->
 	</div>
 	<form id="frm" name="frm" action="faq.do" method="post">
 		<input type="hidden" id="id" name="id">

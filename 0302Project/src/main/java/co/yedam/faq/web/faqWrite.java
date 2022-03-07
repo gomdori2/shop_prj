@@ -16,7 +16,6 @@ public class faqWrite implements DbCommand {
 		// TODO 저장하기
 		faqServiceImpl dao = new faqServiceImpl();
 		faqVO vo = new faqVO();
-		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
 		dao.insertNotice(vo);
 		//

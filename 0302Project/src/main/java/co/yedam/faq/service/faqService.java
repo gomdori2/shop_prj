@@ -10,4 +10,5 @@ public interface faqService {
 	int insertNotice(faqVO vo);
 	int updateNotice(faqVO vo);
 	int deleteNotice(faqVO vo);
+	faqVO noticeSearch(faqVO vo);
 }

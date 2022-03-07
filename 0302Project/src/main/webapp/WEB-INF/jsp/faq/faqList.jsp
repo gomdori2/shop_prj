@@ -51,9 +51,8 @@ tr.row:hover {
 		&nbsp;&nbsp;&nbsp;
 		<%-- <c:if test="${id eq 'admin' }"> --%>
 			<button type="button" onClick="location.href='faqForm.do'">등록</button>
+
 			<td><input type="text" class="form-control" placeholder="검색어 입력를 입력해주세요." name="searchText" maxlength="100">		
-			
-			
 			<button type="submit" class="btn btn-success">검색</button></td>
 		<%-- </c:if> --%>
 	</div>

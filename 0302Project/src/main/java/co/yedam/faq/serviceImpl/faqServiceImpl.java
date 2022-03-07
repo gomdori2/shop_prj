@@ -26,9 +26,10 @@ public class faqServiceImpl extends DAO implements faqService {
 			while (rs.next()) {
 				vo = new faqVO();
 				vo.setId(Integer.parseInt(rs.getString("faq_id")));
-				vo.setWdate(null); 
 				vo.setTitle(rs.getString("faq_title"));
 				vo.setContent(rs.getString("faq_content"));
+				vo.setWdate(rs.getDate("wdate")); 
+				
 				
 				list.add(vo);
 			}
@@ -50,8 +51,8 @@ public class faqServiceImpl extends DAO implements faqService {
 			psmt.setInt(1, vo.getId());
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-				vo.setTitle(rs.getString("title"));
-				vo.setContent(rs.getString("content"));
+				vo.setTitle(rs.getString("faq_title"));
+				vo.setContent(rs.getString("faq_content"));
 				vo.setWdate(rs.getDate("wdate"));
 			}
 		} catch (SQLException e) {
@@ -82,7 +83,6 @@ public class faqServiceImpl extends DAO implements faqService {
 				psmt.setInt(1, vo.getId());
 				psmt.setString(2, vo.getTitle());
 				psmt.setString(3, vo.getContent());
-				
 				n = psmt.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -168,6 +168,31 @@ public class faqServiceImpl extends DAO implements faqService {
 		return list;
 
 	}
+	@Override
+	public faqVO noticeSearch(faqVO vo) {
+		String sql =  "SELECT * FROM faq WHERE faq_title LIKE '%||?||%'";
+		// sql문 그대로 사용가능.
+		try {
+			
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getTitle());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				vo.setTitle(rs.getString("faq_title"));
+				vo.setContent(rs.getString("faq_content"));
+				vo.setWdate(rs.getDate("wdate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
+	}
+	
+	
+	
 
 	private void close() {
 		try {

@@ -46,7 +46,7 @@ public class FrontController extends HttpServlet {
 		map.put("/faqListPaging.do", new faqListPaging()); // 공지사항 목록
 		map.put("/faqForm.do", new faqForm()); // 공지사항 등록 폼 호출
 		map.put("/faqWrite.do", new faqWrite()); // 공지사항 저장
-
+		map.put("/faqSearch.do", new faqSearch());
 		
 		map.put("/faq.do", new faq()); //FAQ 페이지
 		map.put("/ajax/faqList.do", new AjaxFaqList()); // ajax 공지사항 목록

@@ -1,5 +1,7 @@
 package co.yedam.faq.web;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,9 +18,9 @@ public class faq implements DbCommand {
 		faqServiceImpl dao = new faqServiceImpl();
 		faqVO vo = new faqVO();
 		vo.setId(Integer.parseInt(request.getParameter("id")));
-		
 		vo = dao.noticeSelect(vo);
 		request.setAttribute("vo", vo);
+		
 		return "faq/faq.tiles";
 	}
 
